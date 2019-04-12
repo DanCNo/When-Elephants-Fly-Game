@@ -1,0 +1,29 @@
+{
+  "name": "when-elephants-fly-game",
+  "version": "1.0.0",
+  "description": "### About",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "webpack": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanCNo/When-Elephants-Fly-Game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanCNo/When-Elephants-Fly-Game/issues"
+  },
+  "homepage": "https://github.com/DanCNo/When-Elephants-Fly-Game#readme",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}

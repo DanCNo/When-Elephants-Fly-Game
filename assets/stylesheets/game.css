@@ -1,0 +1,39 @@
+.game-main-title-container{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  
+}
+
+.game-main-title{
+  font-family: 'Tangerine', cursive;
+  font-size: 46px;
+}
+
+.canvas-container{
+  position: relative;
+  height: 500px;
+  width: 1000px;
+  margin: 0 auto;
+  border: 1px solid blue;
+  box-shadow: rgb(157, 129, 255) 0px 3px 3px;
+  
+}
+
+.background-canvas {
+  /* background: rgb(133, 183, 248); */
+  /* background: rgb(56, 111, 182); */
+  box-sizing: border-box;
+  display: block;
+  /* margin: 0 auto; */
+  position: absolute;
+}
+
+.main-body-content{
+  /* background-color: white;
+  background-size: cover; */
+  /* background-attachment: fixed; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+}

@@ -32,7 +32,7 @@ This app will consist of a single screen with a game space and nav links to the 
 * HTML5 Canvas for rendering sprites and images.
 * CSS for styling.
 
-In addition to the entry file, 'board.js' will handle logic for creating and updating the necessary elements to render to the DOM. 'game.js' will handle the game logic for behind the scenes. 'airplane.js' and 'elephant.js' will handle the game objects. 
+In addition to the entry file, 'level.js' will handle logic for creating and updating the necessary elements to render to the DOM. 'game.js' will handle the game logic for behind the scenes. 'airplane.js' and 'elephant.js' will handle the game objects. 
 
 ### Features
 
