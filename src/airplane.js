@@ -1,7 +1,7 @@
 const CONSTANTS = {
   GRAVITY: 0.3,
-  TERMINAL_VELOCITY: 0.8,
-  LIFT_VEL_MULTIPLYER: 0.5,
+  TERMINAL_VELOCITY: 1,
+  LIFT_VEL_MULTIPLYER: 1,
   PLANE_WIDTH: 100,
   PLANE_HEIGHT: 50,
 };
@@ -9,9 +9,23 @@ const CONSTANTS = {
 class Airplane {
   constructor(dimensions){
     this.dimensions = dimensions;
+    this.angle = 1;
     this.x = 50;
     this.y = 50;
     this.vertvel = 0;
+    this.frameAngleUpCount = 0;
+  }
+
+  changeAngle(angleDir) {
+    if(angleDir === 1){
+      if(this.angle !== 1){
+        this.angle += 1;
+      }
+    } else {
+      if(this.angle !== -1){
+        this.angle -= 1;
+      }
+    }
   }
 
   drawAirplane(ctx){
@@ -22,12 +36,33 @@ class Airplane {
 
     let xpos = Math.floor(this.x);
     let ypos = Math.floor(this.y);
-    ctx.drawImage(spriteAirplane, 0, 0, 100, 100, xpos, ypos, 40, 40);
+
+    const width = 34;
+    let spriteFrame = this.angle + 1;
+
+    ctx.drawImage(spriteAirplane, 0 + (width * spriteFrame), 0, 35, 35, xpos, ypos, 35, 35);
   }
 
   moveAirplane(){
+
+    if(this.angle === 1){
+      if(this.frameAngleUpCount > 30){
+        this.frameAngleUpCount = 0;
+        this.angle = 0;
+      } else {
+        this.frameAngleUpCount += 1;
+      }
+      
+    }
+
     this.y += this.vertvel;
     this.vertvel += CONSTANTS.GRAVITY;
+
+    if(this.angle === 1){
+      this.vertvel -= (1 * CONSTANTS.LIFT_VEL_MULTIPLYER);
+    } else if(this.angle === -1){
+      this.vertvel -= (-1 * CONSTANTS.LIFT_VEL_MULTIPLYER);
+    }
 
     if (Math.abs(this.vertvel) > CONSTANTS.TERMINAL_VELOCITY) {
       if(this.vertvel > 0){

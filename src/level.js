@@ -41,6 +41,10 @@ class Level {
   moveClouds(){
     this.eachCloud((cloud)=> {
       cloud.xpos -= CONSTANTS.CLOUD_SPEED;
+
+      if(cloud.xpos < -10){
+        cloud.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
+      }
     });
   }
 
