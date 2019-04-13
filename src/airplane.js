@@ -2,6 +2,8 @@ const CONSTANTS = {
   GRAVITY: 0.3,
   TERMINAL_VELOCITY: 0.8,
   LIFT_VEL_MULTIPLYER: 0.5,
+  PLANE_WIDTH: 100,
+  PLANE_HEIGHT: 50,
 };
 
 class Airplane {
@@ -20,7 +22,7 @@ class Airplane {
 
     let xpos = Math.floor(this.x);
     let ypos = Math.floor(this.y);
-    ctx.drawImage(spriteAirplane, 0, 0, 100, 100, xpos, ypos, 30, 30);
+    ctx.drawImage(spriteAirplane, 0, 0, 100, 100, xpos, ypos, 40, 40);
   }
 
   moveAirplane(){
@@ -39,6 +41,21 @@ class Airplane {
   animate(ctx){
     this.moveAirplane();
     this.drawAirplane(ctx);
+  }
+
+  bounds() {
+    return {
+      left: this.x,
+      right: this.x + CONSTANTS.PLANE_WIDTH,
+      top: this.y,
+      bottom: this.y + CONSTANTS.PLANE_HEIGHT,
+    };
+  }
+
+  outOfBounds() {
+    const tooHigh = this.y < 0;
+    const tooLow = this.y + CONSTANTS.PLANE_HEIGHT > this.dimensions.height;
+    return tooHigh || tooLow;
   }
 }
 

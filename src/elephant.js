@@ -1,5 +1,5 @@
 const CONSTANTS = {
-  ELEPHANT_SPEED: 4,
+  ELEPHANT_SPEED: 8,
   EDGE_BUFFER: 100,
 };
 
@@ -14,12 +14,13 @@ class Elephant {
       this.randomElephant(firstElephantPos),
       this.randomElephant(firstElephantPos + Math.floor(Math.random() * firstElephantPos)),
       this.randomElephant(firstElephantPos + Math.floor(Math.random() * firstElephantPos * 2)),
+      this.randomElephant(firstElephantPos + Math.floor(Math.random() * firstElephantPos * 3)),
     ];
   }
 
   randomElephant(xpos) {
 
-    const randomHeight = Math.floor(Math.random() * 100) + 100 + CONSTANTS.EDGE_BUFFER;
+    const randomHeight = Math.floor(Math.random() * 200) + CONSTANTS.EDGE_BUFFER;
 
     const elephant = {
       xpos: xpos,
@@ -61,7 +62,7 @@ class Elephant {
     });
   }
 
-
+  
 
   animate(ctx) {
     this.moveElephant();
