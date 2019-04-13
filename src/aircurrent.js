@@ -13,7 +13,10 @@ class Updraft {
     this.updrafts = [
       this.randomUpdraft(firstUpdraftPos),
       this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos)),
-      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 1.25)),
+      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 1.5)),
+      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 2)),
+      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 2.5)),
+      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 3)),
     ];
   }
 
@@ -34,6 +37,10 @@ class Updraft {
     this.eachUpdraft((updraft) => {
       
       updraft.xpos -= CONSTANTS.UPDRAFT_SPEED;
+
+      if (updraft.xpos < - 100) {
+        updraft.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
+      }
     });
   }
 

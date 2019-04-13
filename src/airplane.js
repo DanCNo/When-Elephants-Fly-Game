@@ -9,7 +9,7 @@ const CONSTANTS = {
 class Airplane {
   constructor(dimensions){
     this.dimensions = dimensions;
-    this.angle = 1;
+    this.angle = -1;
     this.x = 50;
     this.y = 50;
     this.vertvel = 0;
@@ -46,7 +46,7 @@ class Airplane {
   moveAirplane(){
 
     if(this.angle === 1){
-      if(this.frameAngleUpCount > 30){
+      if(this.frameAngleUpCount > 40){
         this.frameAngleUpCount = 0;
         this.angle = 0;
       } else {
@@ -66,7 +66,11 @@ class Airplane {
 
     if (Math.abs(this.vertvel) > CONSTANTS.TERMINAL_VELOCITY) {
       if(this.vertvel > 0){
-        this.vertvel = CONSTANTS.TERMINAL_VELOCITY;
+        if(this.angle !== -1){
+          this.vertvel = CONSTANTS.TERMINAL_VELOCITY;
+        } else {
+          this.vertvel = 2 * CONSTANTS.TERMINAL_VELOCITY;
+        }
       } else {
         this.vertvel = CONSTANTS.TERMINAL_VELOCITY * -1;
       }

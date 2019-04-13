@@ -3,21 +3,21 @@ import Elephant from "./elephant";
 
 const CONSTANTS = {
   CLOUD_SPEED: 2,
-  EDGE_BUFFER: 75,
+  EDGE_BUFFER: 50,
 };
 
 class Level {
   constructor(dimensions) {
     this.dimensions = dimensions;
 
-    const firstCloudPos = this.dimensions.width + 10;
+    const firstCloudPos = Math.floor(Math.random() * this.dimensions.width);
     
     this.clouds = [
       this.randomCloud(firstCloudPos),
       this.randomCloud(firstCloudPos + Math.floor(Math.random() * firstCloudPos)),
       this.randomCloud(firstCloudPos + Math.floor(Math.random() * firstCloudPos * 1.5)),
       this.randomCloud(firstCloudPos + Math.floor(Math.random() * firstCloudPos * 2)),
-      this.randomCloud(firstCloudPos + Math.floor(Math.random() * firstCloudPos * 2.5)),
+      this.randomCloud(firstCloudPos + Math.floor(Math.random() * firstCloudPos * 2.5))
     ];
 
     this.updrafts = new Updraft(this.dimensions);
@@ -42,8 +42,9 @@ class Level {
     this.eachCloud((cloud)=> {
       cloud.xpos -= CONSTANTS.CLOUD_SPEED;
 
-      if(cloud.xpos < -10){
+      if(cloud.xpos < -100){
         cloud.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
+        cloud.ypos = Math.floor(Math.random() * 400) + CONSTANTS.EDGE_BUFFER;
       }
     });
   }

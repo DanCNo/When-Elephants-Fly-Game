@@ -1,6 +1,6 @@
 const CONSTANTS = {
-  ELEPHANT_SPEED: 8,
-  EDGE_BUFFER: 100,
+  ELEPHANT_SPEED: 6,
+  EDGE_BUFFER: 0,
 };
 
 class Elephant {
@@ -12,15 +12,15 @@ class Elephant {
 
     this.elephants = [
       this.randomElephant(firstElephantPos),
-      this.randomElephant(firstElephantPos + Math.floor(Math.random() * firstElephantPos)),
-      this.randomElephant(firstElephantPos + Math.floor(Math.random() * firstElephantPos * 2)),
-      this.randomElephant(firstElephantPos + Math.floor(Math.random() * firstElephantPos * 3)),
+      this.randomElephant(firstElephantPos + 100 + Math.floor(Math.random() * firstElephantPos)),
+      this.randomElephant(firstElephantPos + 100 + Math.floor(Math.random() * firstElephantPos * 2)),
+      this.randomElephant(firstElephantPos + 100 + Math.floor(Math.random() * firstElephantPos * 3)),
     ];
   }
 
   randomElephant(xpos) {
 
-    const randomHeight = Math.floor(Math.random() * 200) + CONSTANTS.EDGE_BUFFER;
+    const randomHeight = Math.floor(Math.random() * 400) + CONSTANTS.EDGE_BUFFER;
 
     const elephant = {
       xpos: xpos,
@@ -35,6 +35,11 @@ class Elephant {
     this.eachElephant((elephant) => {
 
       elephant.xpos -= CONSTANTS.ELEPHANT_SPEED;
+
+      if(elephant.xpos < - 100){
+        elephant.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
+        elephant.ypos = Math.floor(Math.random() * 400);
+      }
     });
   }
 
