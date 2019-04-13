@@ -21,9 +21,6 @@ class Airplane {
     let xpos = Math.floor(this.x);
     let ypos = Math.floor(this.y);
     ctx.drawImage(spriteAirplane, 0, 0, 100, 100, xpos, ypos, 30, 30);
-    // spriteAirplane.onload = function () {
-    //   ctx.drawImage(spriteAirplane, 0, 0, 100, 100, xpos, ypos, 30, 30);
-    // };
   }
 
   moveAirplane(){

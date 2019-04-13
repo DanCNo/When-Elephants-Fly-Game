@@ -6,6 +6,7 @@ const CONSTANTS = {
 class Updraft {
   constructor(dimensions) {
     this.dimensions = dimensions;
+    this.frameCount = 0;
 
     const firstUpdraftPos = this.dimensions.width * 0.6;
 
@@ -38,6 +39,16 @@ class Updraft {
 
   drawUpdraft(ctx) {
     this.eachUpdraft((updraft) => {
+
+      if (this.frameCount > 60) {
+        this.frameCount = 0;
+      } else {
+        this.frameCount += 1;
+      }
+
+      let spriteFrame = Math.floor(this.frameCount / 10);
+
+      const width = 96;
       
       let spriteUpdraft = new Image();
 
@@ -45,7 +56,7 @@ class Updraft {
 
       let xpos = Math.floor(updraft.xpos);
       let ypos = Math.floor(updraft.ypos);
-      ctx.drawImage(spriteUpdraft, 0, 0, 90, 90, xpos, ypos, 50, 50);
+      ctx.drawImage(spriteUpdraft, 0 + (width * spriteFrame), 0, 90, 90, xpos, ypos, 50, 50);
 
     });
   }

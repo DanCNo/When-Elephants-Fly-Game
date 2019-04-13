@@ -1,4 +1,5 @@
 import Updraft from "./aircurrent";
+import Elephant from "./elephant";
 
 const CONSTANTS = {
   CLOUD_SPEED: 2,
@@ -20,6 +21,8 @@ class Level {
     ];
 
     this.updrafts = new Updraft(this.dimensions);
+
+    this.elephants = new Elephant(this.dimensions);
 
   }
 
@@ -51,7 +54,7 @@ class Level {
 
       let xpos = Math.floor(cloud.xpos);
       let ypos = Math.floor(cloud.ypos);
-      ctx.drawImage(spriteCloud, 0, 0, 100, 100, xpos, ypos, 200, 200);
+      ctx.drawImage(spriteCloud, 0, 0, 100, 100, xpos, ypos, 150, 150);
 
     });
   }
@@ -69,6 +72,9 @@ class Level {
 
     this.updrafts.moveUpdraft();
     this.updrafts.drawUpdraft(ctx);
+
+    this.elephants.moveElephant();
+    this.elephants.drawElephant(ctx);
   
   }
 
