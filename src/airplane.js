@@ -2,29 +2,31 @@ const CONSTANTS = {
   GRAVITY: 0.3,
   TERMINAL_VELOCITY: 1,
   LIFT_VEL_MULTIPLYER: 1,
-  PLANE_WIDTH: 100,
-  PLANE_HEIGHT: 50,
+  PLANE_WIDTH: 35,
+  PLANE_HEIGHT: 35,
 };
 
 class Airplane {
   constructor(dimensions){
     this.dimensions = dimensions;
-    this.angle = -1;
+    this.angle = 0;
     this.x = 50;
     this.y = 50;
     this.vertvel = 0;
     this.frameAngleUpCount = 0;
   }
 
+
+
   changeAngle(angleDir) {
     if(angleDir === 1){
-      if(this.angle !== 1){
-        this.angle += 1;
-      }
-    } else {
-      if(this.angle !== -1){
-        this.angle -= 1;
-      }
+      this.angle = 1;
+    }
+    if(angleDir === 0){
+      this.angle = 0;
+    }
+    if(angleDir === -1){
+      this.angle = -1;
     }
   }
 
@@ -77,6 +79,10 @@ class Airplane {
     }
   }
 
+  boostAirplane(){
+    this.y = this.y * 0.5;
+  }
+
   animate(ctx){
     this.moveAirplane();
     this.drawAirplane(ctx);
@@ -92,9 +98,9 @@ class Airplane {
   }
 
   outOfBounds() {
-    const tooHigh = this.y < 0;
+    // const tooHigh = this.y < 0;
     const tooLow = this.y + CONSTANTS.PLANE_HEIGHT > this.dimensions.height;
-    return tooHigh || tooLow;
+    return tooLow;
   }
 }
 

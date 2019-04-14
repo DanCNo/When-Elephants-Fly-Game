@@ -1,6 +1,8 @@
 const CONSTANTS = {
   ELEPHANT_SPEED: 6,
   EDGE_BUFFER: 0,
+  ELEPHANT_WIDTH: 130,
+  ELEPHANT_HEIGHT: 100,
 };
 
 class Elephant {
@@ -25,6 +27,11 @@ class Elephant {
     const elephant = {
       xpos: xpos,
       ypos: randomHeight,
+      left: xpos + 25,
+      right: xpos + 25 + 82,
+      top: randomHeight + 55,
+      bottom: randomHeight + 55 + 30,
+
     };
 
     return elephant;
@@ -35,10 +42,16 @@ class Elephant {
     this.eachElephant((elephant) => {
 
       elephant.xpos -= CONSTANTS.ELEPHANT_SPEED;
+      elephant.left = elephant.xpos + 25;
+      elephant.right = elephant.xpos + 25 + 82;
 
       if(elephant.xpos < - 100){
         elephant.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
         elephant.ypos = Math.floor(Math.random() * 400);
+        elephant.left = elephant.xpos + 25;
+        elephant.right = elephant.xpos + 25 + 82;
+        elephant.top = elephant.ypos + 45;
+        elephant.bottom = elephant.ypos + 45 + 30;
       }
     });
   }
@@ -54,7 +67,7 @@ class Elephant {
 
       let spriteFrame = Math.floor(this.frameCount / 10);
 
-      const width = 96;
+      const width = 162;
 
       let spriteElephant = new Image();
 
@@ -62,7 +75,12 @@ class Elephant {
 
       let xpos = Math.floor(elephant.xpos);
       let ypos = Math.floor(elephant.ypos);
-      ctx.drawImage(spriteElephant, 0 + (width * spriteFrame), 0, 100, 100, xpos, ypos, 100, 100);
+
+      // TESTING
+
+      // ctx.fillStyle = 'red';
+      // ctx.fillRect(xpos, ypos, 130, 100);
+      ctx.drawImage(spriteElephant, 0 + (width * spriteFrame), 0, 160, 125, xpos, ypos, 130, 100);
 
     });
   }
@@ -73,6 +91,7 @@ class Elephant {
     this.moveElephant();
     this.drawElephant(ctx);
   }
+
 
   eachElephant(callback) {
     this.elephants.forEach(callback.bind(this));

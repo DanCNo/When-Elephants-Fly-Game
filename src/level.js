@@ -86,6 +86,48 @@ class Level {
   eachCloud(callback) {
     this.clouds.forEach(callback.bind(this));
   }
+
+  collidesWith(airplane) {
+
+    const _overlap = (obj1, obj2) => {
+      if(obj1.left > obj2.right || obj1.right < obj2.left) {
+        return false;
+      }
+      if(obj1.top > obj2.bottom || obj1.bottom < obj2.top) {
+        return false;
+      }
+      return true;
+    };
+
+    let collision = false;
+    this.elephants.eachElephant((elephant) => {
+      if(_overlap(elephant, airplane)){
+        collision = true;
+      }
+    });
+    return collision;
+  }
+
+  givesBoost(airplane) {
+
+    const _overlap = (obj1, obj2) => {
+      if (obj1.left > obj2.right || obj1.right < obj2.left) {
+        return false;
+      }
+      if (obj1.top > obj2.bottom || obj1.bottom < obj2.top) {
+        return false;
+      }
+      return true;
+    };
+
+    let boost = false;
+    this.updrafts.eachUpdraft((updraft) => {
+      if (_overlap(updraft, airplane)) {
+        boost = true;
+      }
+    });
+    return boost;
+  }
   
 }
 

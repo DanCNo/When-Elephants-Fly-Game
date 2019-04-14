@@ -27,6 +27,10 @@ class Updraft {
     const updraft = {
       xpos: xpos,
       ypos: randomHeight,
+      left: xpos,
+      right: xpos + 50,
+      top: randomHeight,
+      bottom: randomHeight + 50,
     };
     
     return updraft;
@@ -37,9 +41,16 @@ class Updraft {
     this.eachUpdraft((updraft) => {
       
       updraft.xpos -= CONSTANTS.UPDRAFT_SPEED;
+      updraft.left = updraft.xpos;
+      updraft.right = updraft.xpos + 50;
 
       if (updraft.xpos < - 100) {
         updraft.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
+        updraft.ypos = Math.floor(Math.random() * 200) + 200 + CONSTANTS.EDGE_BUFFER;
+        updraft.left = updraft.xpos;
+        updraft.right = updraft.xpos + 50;
+        updraft.top = updraft.ypos;
+        updraft.bottom = updraft.ypos + 50;
       }
     });
   }
