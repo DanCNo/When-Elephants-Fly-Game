@@ -71,7 +71,7 @@ class Elephant {
 
       let spriteElephant = new Image();
 
-      spriteElephant.src = "../WHEN-ELEPHANTS-FLY-GAME/assets/images/elephant.png";
+      spriteElephant.src = "../assets/images/elephant.png";
 
       let xpos = Math.floor(elephant.xpos);
       let ypos = Math.floor(elephant.ypos);

@@ -33,7 +33,7 @@ class Airplane {
   drawAirplane(ctx){
     let spriteAirplane = new Image();
 
-    spriteAirplane.src = "../WHEN-ELEPHANTS-FLY-GAME/assets/images/airplane.png";
+    spriteAirplane.src = "../assets/images/airplane.png";
     
 
     let xpos = Math.floor(this.x);
