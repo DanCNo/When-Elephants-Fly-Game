@@ -24,6 +24,8 @@ class Level {
 
     this.elephants = new Elephant(this.dimensions);
 
+    
+
   }
 
   randomCloud(xpos) {
@@ -59,7 +61,7 @@ class Level {
 
       let xpos = Math.floor(cloud.xpos);
       let ypos = Math.floor(cloud.ypos);
-      ctx.drawImage(spriteCloud, 0, 0, 100, 100, xpos, ypos, 150, 150);
+      ctx.drawImage(spriteCloud, 0, 0, 100, 100, xpos, ypos, 100, 100);
 
     });
   }

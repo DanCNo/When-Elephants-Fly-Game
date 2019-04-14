@@ -1,7 +1,7 @@
 const CONSTANTS = {
   GRAVITY: 0.3,
   TERMINAL_VELOCITY: 1,
-  LIFT_VEL_MULTIPLYER: 1,
+  LIFT_VEL_MULTIPLYER: 0.7,
   PLANE_WIDTH: 35,
   PLANE_HEIGHT: 35,
 };
@@ -48,7 +48,7 @@ class Airplane {
   moveAirplane(){
 
     if(this.angle === 1){
-      if(this.frameAngleUpCount > 40){
+      if(this.frameAngleUpCount > 30){
         this.frameAngleUpCount = 0;
         this.angle = 0;
       } else {
@@ -80,7 +80,7 @@ class Airplane {
   }
 
   boostAirplane(){
-    this.y = this.y * 0.5;
+    this.vertvel -= 50;
   }
 
   animate(ctx){

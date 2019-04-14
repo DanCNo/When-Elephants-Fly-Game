@@ -1,5 +1,6 @@
 import Airplane from './airplane';
 import Level from './level';
+import Timer from 'easytimer.js';
 
 class WhenElephantsFly {
   constructor(canvas) {
@@ -8,8 +9,12 @@ class WhenElephantsFly {
     this.dimensions = { width: canvas.width, height: canvas.height };
     this.airplane = new Airplane(this.dimensions);
     this.level = new Level(this.dimensions);
+    this.scoreTimer = document.getElementById("scoreTimer");
+    this.timer = new Timer( {precision: "secondTenths"});
     this.aPressed = false;
     this.dPressed = false;
+    this.registerEvents();
+    this.restart();
     this.keyDownHandler = this.keyDownHandler.bind(this);
     this.keyUpHandler = this.keyUpHandler.bind(this);
 
@@ -18,6 +23,10 @@ class WhenElephantsFly {
   addEventListeners() {
     document.addEventListener("keydown", this.keyDownHandler, false);
     document.addEventListener("keyup", this.keyUpHandler, false);
+    this.timer.addEventListener("secondTenthsUpdated", () => {
+      this.scoreTimer.innerHTML = this.timer.getTimeValues().toString(["minutes", "seconds", "secondTenths"]);
+    });
+    
   }
 
   keyDownHandler(e){
@@ -36,6 +45,23 @@ class WhenElephantsFly {
           this.airplane.changeAngle(-1);
         }
         break;
+    }
+  }
+
+  registerEvents() {
+    this.boundClickHandler = this.click.bind(this);
+    this.ctx.canvas.addEventListener("mousedown", this.boundClickHandler);
+  }
+
+  click(e) {
+    if (!this.running) {
+      this.play();
+      if(this.timer.isRunning){
+        this.timer.reset();
+      }
+      
+
+      
     }
   }
 
@@ -58,7 +84,9 @@ class WhenElephantsFly {
   play() {
     this.addEventListeners();
     this.running = true;
+    this.timer.start({ precision: 'secondTenths' });
     this.animate();
+    
   }
   
   restart() {
@@ -78,8 +106,10 @@ class WhenElephantsFly {
     }
 
     if(this.gameOver()){
-      // alert("game over");
+      this.timer.pause({precision: "secondTenths"});
+      alert("game over");
       this.restart();
+      
     }
 
     if (this.running) {

@@ -17,23 +17,32 @@
   width: 1000px;
   margin: 0 auto;
   border: 1px solid blue;
+  border-radius: 3px;
   box-shadow: rgb(157, 129, 255) 0px 3px 3px;
   
 }
 
 .background-canvas {
-  /* background: rgb(133, 183, 248); */
-  /* background: rgb(56, 111, 182); */
   box-sizing: border-box;
   display: block;
-  /* margin: 0 auto; */
   position: absolute;
 }
 
-.main-body-content{
-  /* background-color: white;
-  background-size: cover; */
-  /* background-attachment: fixed; */
-  /* background-repeat: no-repeat; */
-  /* background-position: center; */
+.score-timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.score-timer {
+  border: 1px solid lightskyblue;
+  border-radius: 3px;
+  padding: 5px;
+
+}
+
+.score-title {
+  font-size: 14px;
 }

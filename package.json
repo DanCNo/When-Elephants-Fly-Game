@@ -24,6 +24,7 @@
     "webpack-cli": "^3.3.0"
   },
   "dependencies": {
+    "easytimer.js": "^3.1.0",
     "lodash": "^4.17.11"
   }
 }

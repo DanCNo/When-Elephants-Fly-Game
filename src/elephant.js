@@ -1,5 +1,5 @@
 const CONSTANTS = {
-  ELEPHANT_SPEED: 6,
+  ELEPHANT_SPEED: 8,
   EDGE_BUFFER: 0,
   ELEPHANT_WIDTH: 130,
   ELEPHANT_HEIGHT: 100,
@@ -27,10 +27,10 @@ class Elephant {
     const elephant = {
       xpos: xpos,
       ypos: randomHeight,
-      left: xpos + 25,
-      right: xpos + 25 + 82,
-      top: randomHeight + 55,
-      bottom: randomHeight + 55 + 30,
+      left: xpos + 30,
+      right: xpos + 30 + 82,
+      top: randomHeight + 47,
+      bottom: randomHeight + 47 + 50,
 
     };
 
@@ -42,16 +42,16 @@ class Elephant {
     this.eachElephant((elephant) => {
 
       elephant.xpos -= CONSTANTS.ELEPHANT_SPEED;
-      elephant.left = elephant.xpos + 25;
-      elephant.right = elephant.xpos + 25 + 82;
+      elephant.left = elephant.xpos + 30;
+      elephant.right = elephant.xpos + 30 + 82;
 
       if(elephant.xpos < - 100){
         elephant.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
         elephant.ypos = Math.floor(Math.random() * 400);
-        elephant.left = elephant.xpos + 25;
-        elephant.right = elephant.xpos + 25 + 82;
-        elephant.top = elephant.ypos + 45;
-        elephant.bottom = elephant.ypos + 45 + 30;
+        elephant.left = elephant.xpos + 30;
+        elephant.right = elephant.xpos + 30 + 82;
+        elephant.top = elephant.ypos + 47;
+        elephant.bottom = elephant.ypos + 47 + 50;
       }
     });
   }
@@ -76,10 +76,6 @@ class Elephant {
       let xpos = Math.floor(elephant.xpos);
       let ypos = Math.floor(elephant.ypos);
 
-      // TESTING
-
-      // ctx.fillStyle = 'red';
-      // ctx.fillRect(xpos, ypos, 130, 100);
       ctx.drawImage(spriteElephant, 0 + (width * spriteFrame), 0, 160, 125, xpos, ypos, 130, 100);
 
     });
