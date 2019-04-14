@@ -70,7 +70,7 @@ class Updraft {
       
       let spriteUpdraft = new Image();
 
-      spriteUpdraft.src = "../assets/images/updraft.png";
+      spriteUpdraft.src = "../When-Elephants-Fly-Game/assets/images/updraft.png";
 
       let xpos = Math.floor(updraft.xpos);
       let ypos = Math.floor(updraft.ypos);

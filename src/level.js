@@ -56,7 +56,7 @@ class Level {
 
       let spriteCloud = new Image();
 
-      spriteCloud.src = "../assets/images/cloud.png";
+      spriteCloud.src = "../When-Elephants-Fly-Game/assets/images/cloud.png";
 
 
       let xpos = Math.floor(cloud.xpos);
