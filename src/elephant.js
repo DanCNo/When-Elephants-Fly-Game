@@ -1,8 +1,10 @@
 const CONSTANTS = {
   ELEPHANT_SPEED: 8,
   EDGE_BUFFER: 0,
-  ELEPHANT_WIDTH: 130,
-  ELEPHANT_HEIGHT: 100,
+  X_OFFSET: 25,
+  Y_OFFSET: 36,
+  ELEPHANT_WIDTH: 78,
+  ELEPHANT_HEIGHT: 60,
 };
 
 class Elephant {
@@ -27,10 +29,10 @@ class Elephant {
     const elephant = {
       xpos: xpos,
       ypos: randomHeight,
-      left: xpos + 30,
-      right: xpos + 30 + 82,
-      top: randomHeight + 47,
-      bottom: randomHeight + 47 + 50,
+      left: xpos + CONSTANTS.X_OFFSET,
+      right: xpos + CONSTANTS.X_OFFSET + CONSTANTS.ELEPHANT_WIDTH,
+      top: randomHeight + CONSTANTS.Y_OFFSET,
+      bottom: randomHeight + CONSTANTS.Y_OFFSET + CONSTANTS.ELEPHANT_HEIGHT,
 
     };
 
@@ -42,16 +44,16 @@ class Elephant {
     this.eachElephant((elephant) => {
 
       elephant.xpos -= CONSTANTS.ELEPHANT_SPEED;
-      elephant.left = elephant.xpos + 30;
-      elephant.right = elephant.xpos + 30 + 82;
+      elephant.left = elephant.xpos + CONSTANTS.ELEPHANT_WIDTH;
+      elephant.right = elephant.xpos + CONSTANTS.X_OFFSET + CONSTANTS.ELEPHANT_WIDTH;
 
       if(elephant.xpos < - 100){
         elephant.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
         elephant.ypos = Math.floor(Math.random() * 400);
-        elephant.left = elephant.xpos + 30;
-        elephant.right = elephant.xpos + 30 + 82;
-        elephant.top = elephant.ypos + 47;
-        elephant.bottom = elephant.ypos + 47 + 50;
+        elephant.left = elephant.xpos + CONSTANTS.ELEPHANT_WIDTH;
+        elephant.right = elephant.xpos + CONSTANTS.X_OFFSET + CONSTANTS.ELEPHANT_WIDTH;
+        elephant.top = elephant.ypos + CONSTANTS.ELEPHANT_HEIGHT;
+        elephant.bottom = elephant.ypos + CONSTANTS.Y_OFFSET + CONSTANTS.ELEPHANT_HEIGHT;
       }
     });
   }
@@ -75,7 +77,11 @@ class Elephant {
 
       let xpos = Math.floor(elephant.xpos);
       let ypos = Math.floor(elephant.ypos);
-
+      
+      // TESTING
+      // ctx.fillStyle = "#FF0000";
+      // ctx.fillRect(xpos + 25, ypos + 36, 78, 60);
+      
       ctx.drawImage(spriteElephant, 0 + (width * spriteFrame), 0, 160, 125, xpos, ypos, 130, 100);
 
     });

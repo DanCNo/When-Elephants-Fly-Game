@@ -98,6 +98,12 @@ class WhenElephantsFly {
 
   animate() {
     this.ctx.clearRect(0, 0, 1000, 500);
+    if(this.gameOver()){
+      this.timer.pause({precision: "secondTenths"});
+      alert("game over");
+      this.restart();
+      
+    }
     this.level.animate(this.ctx);
     this.airplane.animate(this.ctx);
 
@@ -105,12 +111,6 @@ class WhenElephantsFly {
       this.airplane.boostAirplane();
     }
 
-    if(this.gameOver()){
-      this.timer.pause({precision: "secondTenths"});
-      alert("game over");
-      this.restart();
-      
-    }
 
     if (this.running) {
       requestAnimationFrame(this.animate.bind(this));

@@ -1,6 +1,7 @@
 const CONSTANTS = {
   UPDRAFT_SPEED: 2,
   EDGE_BUFFER: 25,
+  OFFSET: 50,
 };
 
 class Updraft {
@@ -12,11 +13,11 @@ class Updraft {
 
     this.updrafts = [
       this.randomUpdraft(firstUpdraftPos),
-      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos)),
-      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 1.5)),
-      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 2)),
-      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 2.5)),
-      this.randomUpdraft(firstUpdraftPos + Math.floor(Math.random() * firstUpdraftPos * 3)),
+      this.randomUpdraft(firstUpdraftPos + CONSTANTS.OFFSET + Math.floor(Math.random() * firstUpdraftPos)),
+      this.randomUpdraft(firstUpdraftPos + CONSTANTS.OFFSET + Math.floor(Math.random() * firstUpdraftPos * 2)),
+      this.randomUpdraft(firstUpdraftPos + CONSTANTS.OFFSET + Math.floor(Math.random() * firstUpdraftPos * 3)),
+      this.randomUpdraft(firstUpdraftPos + CONSTANTS.OFFSET + Math.floor(Math.random() * firstUpdraftPos * 4)),
+      this.randomUpdraft(firstUpdraftPos + CONSTANTS.OFFSET + Math.floor(Math.random() * firstUpdraftPos * 5)),
     ];
   }
 
@@ -28,9 +29,9 @@ class Updraft {
       xpos: xpos,
       ypos: randomHeight,
       left: xpos,
-      right: xpos + 50,
+      right: xpos + 45,
       top: randomHeight,
-      bottom: randomHeight + 50,
+      bottom: randomHeight + 45,
     };
     
     return updraft;
@@ -74,7 +75,12 @@ class Updraft {
 
       let xpos = Math.floor(updraft.xpos);
       let ypos = Math.floor(updraft.ypos);
-      ctx.drawImage(spriteUpdraft, 0 + (width * spriteFrame), 0, 90, 90, xpos, ypos, 50, 50);
+
+      //TESTING
+      // ctx.fillStyle = "#FF0000";
+      // ctx.fillRect(xpos, ypos, 45, 45);
+
+      ctx.drawImage(spriteUpdraft, 0 + (width * spriteFrame), 0, 90, 90, xpos, ypos, 45, 45);
 
     });
   }

@@ -44,7 +44,7 @@ class Level {
     this.eachCloud((cloud)=> {
       cloud.xpos -= CONSTANTS.CLOUD_SPEED;
 
-      if(cloud.xpos < -100){
+      if(cloud.xpos < -200){
         cloud.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
         cloud.ypos = Math.floor(Math.random() * 400) + CONSTANTS.EDGE_BUFFER;
       }
@@ -61,7 +61,7 @@ class Level {
 
       let xpos = Math.floor(cloud.xpos);
       let ypos = Math.floor(cloud.ypos);
-      ctx.drawImage(spriteCloud, 0, 0, 100, 100, xpos, ypos, 100, 100);
+      ctx.drawImage(spriteCloud, 0, 0, 100, 100, xpos, ypos, 200, 200);
 
     });
   }
@@ -104,6 +104,7 @@ class Level {
     let collision = false;
     this.elephants.eachElephant((elephant) => {
       if(_overlap(elephant, airplane)){
+        console.log("hit");
         collision = true;
       }
     });

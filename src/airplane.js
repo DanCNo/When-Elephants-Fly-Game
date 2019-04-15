@@ -2,8 +2,8 @@ const CONSTANTS = {
   GRAVITY: 0.3,
   TERMINAL_VELOCITY: 1,
   LIFT_VEL_MULTIPLYER: 0.7,
-  PLANE_WIDTH: 35,
-  PLANE_HEIGHT: 35,
+  PLANE_WIDTH: 25,
+  PLANE_HEIGHT: 18,
 };
 
 class Airplane {
@@ -42,7 +42,11 @@ class Airplane {
     const width = 34;
     let spriteFrame = this.angle + 1;
 
-    ctx.drawImage(spriteAirplane, 0 + (width * spriteFrame), 0, 35, 35, xpos, ypos, 35, 35);
+    //TESTING
+    // ctx.fillStyle = "#FF0000";
+    // ctx.fillRect(xpos, ypos, 25, 18);
+    
+    ctx.drawImage(spriteAirplane, 0 + (width * spriteFrame), 0, 34, 34, xpos, ypos, 34, 34);
   }
 
   moveAirplane(){
