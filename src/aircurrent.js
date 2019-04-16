@@ -1,7 +1,7 @@
 const CONSTANTS = {
   UPDRAFT_SPEED: 2,
   EDGE_BUFFER: 25,
-  OFFSET: 50,
+  OFFSET: 200,
 };
 
 class Updraft {
@@ -46,12 +46,12 @@ class Updraft {
       updraft.right = updraft.xpos + 50;
 
       if (updraft.xpos < - 100) {
-        updraft.xpos = this.dimensions.width + Math.floor(Math.random() * this.dimensions.width);
+        updraft.xpos = this.dimensions.width + CONSTANTS.OFFSET + Math.floor(Math.random() * this.dimensions.width);
         updraft.ypos = Math.floor(Math.random() * 200) + 200 + CONSTANTS.EDGE_BUFFER;
         updraft.left = updraft.xpos;
-        updraft.right = updraft.xpos + 50;
+        updraft.right = updraft.xpos + 45;
         updraft.top = updraft.ypos;
-        updraft.bottom = updraft.ypos + 50;
+        updraft.bottom = updraft.ypos + 45;
       }
     });
   }

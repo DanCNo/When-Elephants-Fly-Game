@@ -1,7 +1,7 @@
 const CONSTANTS = {
   GRAVITY: 0.3,
   TERMINAL_VELOCITY: 1,
-  LIFT_VEL_MULTIPLYER: 0.7,
+  LIFT_VEL_MULTIPLYER: 0.9,
   PLANE_WIDTH: 25,
   PLANE_HEIGHT: 18,
 };
@@ -14,6 +14,8 @@ class Airplane {
     this.y = 50;
     this.vertvel = 0;
     this.frameAngleUpCount = 0;
+    this.frameBoostCount = 0;
+    this.boosted = false;
   }
 
 
@@ -70,6 +72,11 @@ class Airplane {
       this.vertvel -= (-1 * CONSTANTS.LIFT_VEL_MULTIPLYER);
     }
 
+    if(this.boosted){
+      this.vertvel -= 10 * CONSTANTS.LIFT_VEL_MULTIPLYER;
+      this.boostAirplane();
+    }
+
     if (Math.abs(this.vertvel) > CONSTANTS.TERMINAL_VELOCITY) {
       if(this.vertvel > 0){
         if(this.angle !== -1){
@@ -84,7 +91,13 @@ class Airplane {
   }
 
   boostAirplane(){
-    this.vertvel -= 50;
+    if(this.frameBoostCount > 120){
+      this.frameBoostCount = 0;
+      this.boosted = false;
+    } else {
+      this.frameBoostCount += 1;
+      this.boosted = true;
+    }
   }
 
   animate(ctx){
