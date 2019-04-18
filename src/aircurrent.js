@@ -1,7 +1,7 @@
 const CONSTANTS = {
-  UPDRAFT_SPEED: 2,
+  UPDRAFT_SPEED: 3,
   EDGE_BUFFER: 25,
-  OFFSET: 200,
+  OFFSET: 300,
 };
 
 class Updraft {
@@ -29,9 +29,9 @@ class Updraft {
       xpos: xpos,
       ypos: randomHeight,
       left: xpos,
-      right: xpos + 45,
+      right: xpos + 80,
       top: randomHeight,
-      bottom: randomHeight + 45,
+      bottom: randomHeight + 50,
     };
     
     return updraft;
@@ -43,15 +43,15 @@ class Updraft {
       
       updraft.xpos -= CONSTANTS.UPDRAFT_SPEED;
       updraft.left = updraft.xpos;
-      updraft.right = updraft.xpos + 50;
+      updraft.right = updraft.xpos + 80;
 
-      if (updraft.xpos < - 100) {
+      if (updraft.xpos < -100) {
         updraft.xpos = this.dimensions.width + CONSTANTS.OFFSET + Math.floor(Math.random() * this.dimensions.width);
         updraft.ypos = Math.floor(Math.random() * 200) + 200 + CONSTANTS.EDGE_BUFFER;
         updraft.left = updraft.xpos;
-        updraft.right = updraft.xpos + 45;
+        updraft.right = updraft.xpos + 80;
         updraft.top = updraft.ypos;
-        updraft.bottom = updraft.ypos + 45;
+        updraft.bottom = updraft.ypos + 50;
       }
     });
   }
@@ -59,15 +59,15 @@ class Updraft {
   drawUpdraft(ctx) {
     this.eachUpdraft((updraft) => {
 
-      if (this.frameCount > 60) {
+      if (this.frameCount > 160) {
         this.frameCount = 0;
       } else {
         this.frameCount += 1;
       }
 
-      let spriteFrame = Math.floor(this.frameCount / 10);
+      let spriteFrame = Math.floor(this.frameCount / 20);
 
-      const width = 96;
+      const width = 80;
       
       let spriteUpdraft = new Image();
 
@@ -76,11 +76,11 @@ class Updraft {
       let xpos = Math.floor(updraft.xpos);
       let ypos = Math.floor(updraft.ypos);
 
-      //TESTING
+      // TESTING
       // ctx.fillStyle = "#FF0000";
-      // ctx.fillRect(xpos, ypos, 45, 45);
+      // ctx.fillRect(xpos, ypos, 150, 45);
 
-      ctx.drawImage(spriteUpdraft, 0 + (width * spriteFrame), 0, 90, 90, xpos, ypos, 45, 45);
+      ctx.drawImage(spriteUpdraft, 0 + (width * spriteFrame), 0, 80, 50, xpos, ypos, 80, 50);
 
     });
   }

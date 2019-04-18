@@ -2,7 +2,7 @@ import Updraft from "./aircurrent";
 import Elephant from "./elephant";
 
 const CONSTANTS = {
-  CLOUD_SPEED: 2,
+  CLOUD_SPEED: 3,
   EDGE_BUFFER: 50,
 };
 

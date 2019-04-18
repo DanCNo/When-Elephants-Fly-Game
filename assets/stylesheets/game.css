@@ -2,14 +2,18 @@
   display: flex;
   justify-content: center;
   margin: 10px;
-  
+  padding: 5px;
+  width: 1000px;
+  background-color: #A0B6D4;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  box-shadow: #658EC5 0px 3px 3px;
   
 }
 
 .main-body-content {
   display: flex;
   background-image: url("../images/background.png");
-  /* background-size */
   flex-direction: column;
   align-items: center;
 }
@@ -28,7 +32,7 @@
   margin: 0 auto;
   border: 1px solid darkblue;
   border-radius: 3px;
-  box-shadow: rgb(157, 129, 255) 0px 3px 3px;
+  box-shadow: #658EC5 0px 3px 3px;
   
 }
 
@@ -44,7 +48,7 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  font-family: "Raleway", 
+  font-family: "Raleway", sans-serif;
 }
 
 .score-timer {
@@ -67,6 +71,11 @@
   margin: 20px;
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
+  background-color: #A0B6D4;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  box-shadow: #658EC5 0px 3px 3px;
+
 }
 
 .nav-link {
@@ -77,4 +86,65 @@
 
 .nav-link:hover {
   text-decoration-line: underline;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  z-index: 10;
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(43, 43, 161);
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+.close-button:hover {
+  background-color: darkgray;
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  z-index: 500;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-airplane-pic {
+  height: 32px;
+  width: 62px;
+}
+
+.rules-list{
+  padding: 5px;
+  color: #A0B6D4;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+}
+
+.rules-title {
+  color: #A0B6D4;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
 }

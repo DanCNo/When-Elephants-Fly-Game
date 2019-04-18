@@ -69,7 +69,7 @@ class Airplane {
     if(this.angle === 1){
       this.vertvel -= (1 * CONSTANTS.LIFT_VEL_MULTIPLYER);
     } else if(this.angle === -1){
-      this.vertvel -= (-1 * CONSTANTS.LIFT_VEL_MULTIPLYER);
+      this.vertvel -= (-2 * CONSTANTS.LIFT_VEL_MULTIPLYER);
     }
 
     if(this.boosted){
@@ -82,7 +82,7 @@ class Airplane {
         if(this.angle !== -1){
           this.vertvel = CONSTANTS.TERMINAL_VELOCITY;
         } else {
-          this.vertvel = 2 * CONSTANTS.TERMINAL_VELOCITY;
+          this.vertvel = 3 * CONSTANTS.TERMINAL_VELOCITY;
         }
       } else {
         this.vertvel = CONSTANTS.TERMINAL_VELOCITY * -1;
@@ -115,9 +115,9 @@ class Airplane {
   }
 
   outOfBounds() {
-    // const tooHigh = this.y < 0;
+    const tooHigh = this.y < 0;
     const tooLow = this.y + CONSTANTS.PLANE_HEIGHT > this.dimensions.height;
-    return tooLow;
+    return tooLow || tooHigh;
   }
 }
 
