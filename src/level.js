@@ -104,7 +104,7 @@ class Level {
     let collision = false;
     this.elephants.eachElephant((elephant) => {
       if(_overlap(elephant, airplane)){
-        console.log("hit");
+        
         collision = true;
       }
     });

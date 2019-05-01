@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeButton = document.getElementById("close-button");
   
   function toggleModal() {
-    console.log("toggle");
+    
     modal.classList.toggle("show-modal");
   }
   
