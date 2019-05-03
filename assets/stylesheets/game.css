@@ -148,3 +148,32 @@
   font-family: "Raleway", sans-serif;
   font-size: 20px;
 }
+
+a:hover{
+  animation: shadow-drop 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes shadow-drop {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.70);
+  }
+}
+@keyframes shadow-drop {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.70);
+  }
+}
