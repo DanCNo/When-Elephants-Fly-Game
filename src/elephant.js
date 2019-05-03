@@ -44,7 +44,7 @@ class Elephant {
     this.eachElephant((elephant) => {
 
       elephant.xpos -= CONSTANTS.ELEPHANT_SPEED;
-      elephant.left = elephant.xpos + CONSTANTS.ELEPHANT_WIDTH;
+      elephant.left = elephant.xpos + CONSTANTS.X_OFFSET;
       elephant.right = elephant.xpos + CONSTANTS.X_OFFSET + CONSTANTS.ELEPHANT_WIDTH;
 
       if(elephant.xpos < - 100){
@@ -52,7 +52,7 @@ class Elephant {
         elephant.ypos = Math.floor(Math.random() * 400);
         elephant.left = elephant.xpos + CONSTANTS.ELEPHANT_WIDTH;
         elephant.right = elephant.xpos + CONSTANTS.X_OFFSET + CONSTANTS.ELEPHANT_WIDTH;
-        elephant.top = elephant.ypos + CONSTANTS.ELEPHANT_HEIGHT;
+        elephant.top = elephant.ypos + CONSTANTS.Y_OFFSET;
         elephant.bottom = elephant.ypos + CONSTANTS.Y_OFFSET + CONSTANTS.ELEPHANT_HEIGHT;
       }
     });
@@ -77,10 +77,6 @@ class Elephant {
 
       let xpos = Math.floor(elephant.xpos);
       let ypos = Math.floor(elephant.ypos);
-      
-      // TESTING
-      // ctx.fillStyle = "#FF0000";
-      // ctx.fillRect(xpos + 25, ypos + 36, CONSTANTS.ELEPHANT_WIDTH, CONSTANTS.ELEPHANT_HEIGHT);
       
       ctx.drawImage(spriteElephant, 0 + (width * spriteFrame), 0, 160, 125, xpos, ypos, 130, 100);
 
