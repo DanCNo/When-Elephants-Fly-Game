@@ -1,5 +1,5 @@
 const CONSTANTS = {
-  ELEPHANT_SPEED: 12,
+  ELEPHANT_SPEED: 10,
   EDGE_BUFFER: 0,
   X_OFFSET: 25,
   Y_OFFSET: 36,
@@ -80,7 +80,7 @@ class Elephant {
       
       // TESTING
       // ctx.fillStyle = "#FF0000";
-      // ctx.fillRect(xpos + 25, ypos + 36, 78, 60);
+      // ctx.fillRect(xpos + 25, ypos + 36, CONSTANTS.ELEPHANT_WIDTH, CONSTANTS.ELEPHANT_HEIGHT);
       
       ctx.drawImage(spriteElephant, 0 + (width * spriteFrame), 0, 160, 125, xpos, ypos, 130, 100);
 

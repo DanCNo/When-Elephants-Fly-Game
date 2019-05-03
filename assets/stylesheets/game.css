@@ -149,9 +149,9 @@
   font-size: 20px;
 }
 
-i:hover{
+.nav-link:hover{
   animation: shadow-drop 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  background-color: lightgrey;
+  background-color: #A0B6D4;
 }
 
 @-webkit-keyframes shadow-drop {
@@ -161,9 +161,9 @@ i:hover{
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
   100% {
-    -webkit-transform: translateZ(50px);
-            transform: translateZ(50px);
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.70);
+    -webkit-transform: translateZ(25px);
+            transform: translateZ(25px);
+    box-shadow: 0 0 5px 1px rgba(39, 22, 190, 0.37); 
   }
 }
 @keyframes shadow-drop {
@@ -173,8 +173,8 @@ i:hover{
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
   100% {
-    -webkit-transform: translateZ(50px);
-            transform: translateZ(50px);
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.70);
+    -webkit-transform: translateZ(25px);
+            transform: translateZ(25px);
+    box-shadow: 0 0 5px 1px rgba(39, 22, 190, 0.37);
   }
 }
