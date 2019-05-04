@@ -48,7 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const gameCanvas = document.getElementById('game');
   
-  new WhenElephantsFly(gameCanvas);
+  const game = new WhenElephantsFly(gameCanvas);
   
-
+  document.getElementById("submitButton").addEventListener("click", () => {
+    let name = document.getElementById("initialSubmit").value.slice(0, 3);
+    let data = {
+      name: name,
+      score: game.score
+    };
+    ref.push(data);
+    document.getElementById("game-over-menu").style.display = "none";
+    game.restart();
+  });
 });
