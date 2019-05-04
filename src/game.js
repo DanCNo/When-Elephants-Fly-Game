@@ -99,24 +99,32 @@ class WhenElephantsFly {
   }
 
   animate() {
-    this.ctx.clearRect(0, 0, 1000, 500);
+    // this.ctx.clearRect(0, 0, 1000, 500);
     if(this.gameOver()){
       this.timer.pause({precision: "secondTenths"});
       console.log(this.score);
-      alert("game over");
-      this.restart();
+      document.getElementById("game-over-menu").style.display = "flex";
+
+      document.getElementById("retryButton").addEventListener("click", () => {
+        document.getElementById("game-over-menu").style.display = "none";
+        this.restart();
+      });
+      // alert("game over");
+      // this.restart();
       
-    }
-    this.level.animate(this.ctx);
-    this.airplane.animate(this.ctx);
-
-    if(this.boosted()) {
-      this.airplane.boostAirplane();
-    }
-
-
-    if (this.running) {
-      requestAnimationFrame(this.animate.bind(this));
+    }else{
+      this.ctx.clearRect(0, 0, 1000, 500);
+      this.level.animate(this.ctx);
+      this.airplane.animate(this.ctx);
+  
+      if(this.boosted()) {
+        this.airplane.boostAirplane();
+      }
+  
+  
+      if (this.running) {
+        requestAnimationFrame(this.animate.bind(this));
+      }
     }
   }
 
