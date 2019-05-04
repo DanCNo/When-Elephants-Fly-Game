@@ -99,18 +99,16 @@ class WhenElephantsFly {
   }
 
   animate() {
-    // this.ctx.clearRect(0, 0, 1000, 500);
+    
     if(this.gameOver()){
       this.timer.pause({precision: "secondTenths"});
       console.log(this.score);
       document.getElementById("game-over-menu").style.display = "flex";
-
+      document.getElementById("scoreDisplay").innerHTML = this.score;
       document.getElementById("retryButton").addEventListener("click", () => {
         document.getElementById("game-over-menu").style.display = "none";
         this.restart();
       });
-      // alert("game over");
-      // this.restart();
       
     }else{
       this.ctx.clearRect(0, 0, 1000, 500);
