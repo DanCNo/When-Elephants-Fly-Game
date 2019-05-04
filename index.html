@@ -18,6 +18,8 @@
 </head>
 
 <body class="main-body-content">
+  <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-database.js"></script>
   <script type="text/javascript" src="./dist/main.js"></script>
   
   <div class="score-timer-container">
@@ -30,8 +32,19 @@
     <canvas class="canvas" id="game" height="500" width="1000"></canvas>
   </div>
   <div>
-    <div>
-      
+    <div class="game-over-menu-container">
+      <div class="game-over-menu" id="game-over-menu">
+        <div class="game-over-text">
+          Game Over!
+        </div>
+        <div class="submit-score-text">
+          Submit your Score
+        </div>
+        <input type="text" id="initialSubmit" placeholder="Enter your initials" maxlength="3">
+        <button id="submitButton">Submit</button>
+        <button id="retryButton">Retry</button>
+
+      </div>
       <div class="modal" id="modal">
         <div class="modal-content" id="modal-content">
           <span class="close-button" id="close-button">&times;</span>

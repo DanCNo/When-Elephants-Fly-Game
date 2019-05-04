@@ -13,6 +13,7 @@ class WhenElephantsFly {
     this.timer = new Timer( {precision: "secondTenths"});
     this.aPressed = false;
     this.dPressed = false;
+    this.score = 0;
     this.registerEvents();
     this.restart();
     this.keyDownHandler = this.keyDownHandler.bind(this);
@@ -25,6 +26,7 @@ class WhenElephantsFly {
     document.addEventListener("keyup", this.keyUpHandler, false);
     this.timer.addEventListener("secondTenthsUpdated", () => {
       this.scoreTimer.innerHTML = this.timer.getTimeValues().toString(["minutes", "seconds", "secondTenths"]);
+      this.score = (this.timer.getTimeValues().minutes * 60) + (this.timer.getTimeValues().seconds * 10) + this.timer.getTimeValues().secondTenths;
     });
     
   }
@@ -100,6 +102,7 @@ class WhenElephantsFly {
     this.ctx.clearRect(0, 0, 1000, 500);
     if(this.gameOver()){
       this.timer.pause({precision: "secondTenths"});
+      console.log(this.score);
       alert("game over");
       this.restart();
       

@@ -106,7 +106,6 @@ class Level {
       if(_overlap(elephant, airplane)){
         
         collision = true;
-        console.log("hit");
       }
     });
     return collision;

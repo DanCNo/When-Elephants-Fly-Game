@@ -20,7 +20,7 @@
 
 .game-main-title{
   font-family: 'Tangerine', cursive;
-  color: blue;
+  color: darkblue;
   font-size: 46px;
   font-weight: 200;
 }
@@ -80,13 +80,66 @@
 
 .nav-link {
   padding: 10px;
-  color: blue;
+  color: darkblue;
   font-weight: 300;
 }
 
 .nav-link:hover {
   text-decoration-line: underline;
 }
+
+.game-over-menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+.game-over-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #A0B6D4;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif;
+  color: darkblue;
+  width: 25rem;
+  z-index: 2;
+  margin: 0;
+  top: 35%;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  position: absolute;
+}
+
+.game-over-text {
+  font-size: 24px;
+  padding: 5px;
+  margin: 5px;
+}
+
+#initialSubmit {
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  width: 130px;
+  margin-bottom: 5px;
+  
+}
+
+#submitButton {
+  border: 1px solid darkblue;
+  border-radius: 3px;
+  padding: 2px;
+  margin: 3px;
+}
+
+#retryButton {
+  border: 1px solid darkblue;
+   border-radius: 3px;
+  padding: 2px;
+  margin: 3px;
+}
+
 
 .modal {
   position: fixed;
