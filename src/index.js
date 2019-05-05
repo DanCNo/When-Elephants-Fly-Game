@@ -20,6 +20,37 @@ document.addEventListener("DOMContentLoaded", () => {
   var database = firebase.database();
 
   var ref = database.ref('scores');
+  let highScores = document.getElementById("high-scores");
+  ref.on('value', sortAddData, errorData);
+
+  
+  function sortAddData(data) {
+    let scores = data.val();
+    let values = Object.values(scores);
+
+    let sortedScores = values.sort(function(a,b) {
+      return a.score - b.score;
+    }).reverse().slice(0, 4);
+
+    console.log(sortedScores);
+    let list = document.createElement('ol');
+    for(let i = 0; i <sortedScores.length; i++){
+      let initials = sortedScores[i].name;
+      let points = sortedScores[i].score;
+      let li = document.createElement('li');
+      let textNode = document.createTextNode(initials + ": " + points);
+      li.append(textNode);
+      list.appendChild(li);
+    }
+    
+    highScores.replaceChild(list, highScores.childNodes[0]);
+
+  }
+
+  function errorData(err){
+    console.log(err);
+    console.log("error");
+  }
 
  
   const modal = document.getElementById("modal");
@@ -52,12 +83,20 @@ document.addEventListener("DOMContentLoaded", () => {
   
   document.getElementById("submitButton").addEventListener("click", () => {
     let name = document.getElementById("initialSubmit").value.slice(0, 3);
-    let data = {
-      name: name,
-      score: game.score
-    };
-    ref.push(data);
-    document.getElementById("game-over-menu").style.display = "none";
+    if(name.length > 0){
+      let data = {
+        name: name,
+        score: game.score
+      };
+      document.getElementById("initialSubmit").value = null;
+      document.getElementById("game-over-menu").style.display = "none";
+      ref.push(data);
+
+    }
+    // let scoreList = document.getElementById("high-scores");
+    // while(scoreList.firstChild){
+    //   scoreList.removeChild(scoreList.firstChild);
+    // }
     game.restart();
   });
 });

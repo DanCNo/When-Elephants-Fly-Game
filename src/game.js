@@ -102,7 +102,6 @@ class WhenElephantsFly {
     
     if(this.gameOver()){
       this.timer.pause({precision: "secondTenths"});
-      console.log(this.score);
       document.getElementById("game-over-menu").style.display = "flex";
       document.getElementById("scoreDisplay").innerHTML = this.score;
       document.getElementById("retryButton").addEventListener("click", () => {
