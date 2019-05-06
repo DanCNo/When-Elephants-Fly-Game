@@ -25,8 +25,8 @@ class WhenElephantsFly {
     document.addEventListener("keydown", this.keyDownHandler, false);
     document.addEventListener("keyup", this.keyUpHandler, false);
     this.timer.addEventListener("secondTenthsUpdated", () => {
-      this.scoreTimer.innerHTML = this.timer.getTimeValues().toString(["minutes", "seconds", "secondTenths"]);
       this.score = (this.timer.getTimeValues().minutes * 60) + (this.timer.getTimeValues().seconds * 10) + this.timer.getTimeValues().secondTenths;
+      this.scoreTimer.innerHTML = this.score;
     });
     
   }
