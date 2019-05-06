@@ -1,6 +1,6 @@
 ## JS Project Proposal: When Elephants Fly Game
 
-[Live Link](https://www.google.com "When Elephants Fly")
+[Live Link](https://dancno.github.io/When-Elephants-Fly-Game/index.html "When Elephants Fly")
 
 ### About
 
