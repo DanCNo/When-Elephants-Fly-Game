@@ -1,5 +1,7 @@
 ## JS Project Proposal: When Elephants Fly Game
 
+[Live Link](https://www.google.com "When Elephants Fly")
+
 ### About
 
 Control a paper airplane gliding across the screen and catch updrafts to stay aloft as long as possible. Avoid the flying elephants!
