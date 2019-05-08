@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return a.score - b.score;
     }).reverse().slice(0, 4);
 
-    console.log(sortedScores);
+    
     let list = document.createElement('ol');
     for(let i = 0; i <sortedScores.length; i++){
       let initials = sortedScores[i].name;
