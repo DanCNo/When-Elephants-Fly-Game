@@ -61,6 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     modal.classList.toggle("show-modal");
   }
+
+  toggleModal();
   
   trigger.onclick = () => {
     toggleModal();
