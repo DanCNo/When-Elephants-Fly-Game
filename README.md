@@ -36,23 +36,25 @@ This app will consist of a single screen with a game space and nav links to the 
 
 In addition to the entry file, 'level.js' will handle logic for creating and updating the necessary elements to render to the DOM. 'game.js' will handle the game logic for behind the scenes. 'airplane.js' and 'elephant.js' will handle the game objects. 
 
-### Features
+### Features and Highlights
 
 * Infinite scrolling
 * Gravity / Updraft
 * Sprite animation
 * Live Score
+* High Scores with Google Firebase
 
-### Implementation Timeline
+A modal that pops up on the initial load or on user click on the rules link. 
 
-Day 1
-Set up file structure. Style the single page. Render game space background and scrolling. Render paper airplane and gliding steadily to the ground. 
+![Rules](https://github.com/DanCNo/When-Elephants-Fly-Game/blob/master/assets/images/game_rules_modal.png)
 
-Day 2
-Implement game over when airplane hits the ground. Implement player controls, 'A' and 'D' for increasing and decreasing angle of flight. 
+An infinitely scrolling level with randomly generated level elements like the background clouds, enemy elephants, and 
+updrafts. They're initialized off-screen on the right side and being repositioned back there once they go off-screen on the left side. Also includes the live score.
 
-Day 3
-Implement placing random updrafts. Implement updraft causing change in airplane movement.
+![Gameplay](https://github.com/DanCNo/When-Elephants-Fly-Game/blob/master/assets/images/gameplay_screen.png)
 
-Day 4
-Implement flying elephants. Implement crashing into an elephant and ending the game. Implement game over when airplane hits the ground and live score based on time aloft.
+Game over modal with high scores display integrated with Google Firebase.
+
+![Scores](https://github.com/DanCNo/When-Elephants-Fly-Game/blob/master/assets/images/game_over_modal.png)
+
+
