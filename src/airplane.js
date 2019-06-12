@@ -43,10 +43,6 @@ class Airplane {
 
     const width = 34;
     let spriteFrame = this.angle + 1;
-
-    //TESTING
-    // ctx.fillStyle = "#FF0000";
-    // ctx.fillRect(xpos, ypos, 25, 18);
     
     ctx.drawImage(spriteAirplane, 0 + (width * spriteFrame), 0, 34, 34, xpos, ypos, 34, 34);
   }

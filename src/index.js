@@ -4,7 +4,7 @@ import WhenElephantsFly from './game';
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Your web app's Firebase configuration
+  
   var firebaseConfig = {
     apiKey: "AIzaSyAEsPNTL7KHbJGHtI78febk2Tj_848P01w",
     authDomain: "when-elephants-fly-hi-score.firebaseapp.com",
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     messagingSenderId: "698905963270",
     appId: "1:698905963270:web:495d1b6918d9d96f"
   };
-  // Initialize Firebase
+  
   firebase.initializeApp(firebaseConfig);
 
   var database = firebase.database();
@@ -95,10 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ref.push(data);
 
     }
-    // let scoreList = document.getElementById("high-scores");
-    // while(scoreList.firstChild){
-    //   scoreList.removeChild(scoreList.firstChild);
-    // }
+  
     game.restart();
   });
 });
