@@ -76,10 +76,6 @@ class Updraft {
       let xpos = Math.floor(updraft.xpos);
       let ypos = Math.floor(updraft.ypos);
 
-      // TESTING
-      // ctx.fillStyle = "#FF0000";
-      // ctx.fillRect(xpos, ypos, 150, 45);
-
       ctx.drawImage(spriteUpdraft, 0 + (width * spriteFrame), 0, 80, 50, xpos, ypos, 80, 50);
 
     });
