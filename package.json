@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/DanCNo/When-Elephants-Fly-Game#readme",
   "devDependencies": {
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "easytimer.js": "^3.1.0",
